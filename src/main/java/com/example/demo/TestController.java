@@ -12,6 +12,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.websocket.server.PathParam;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,6 +42,9 @@ public class TestController {
     public static class MyForm {
         Boolean the_checkbox;
         BigDecimal amount;
+        LocalDate cash_date;
+
+        
         public Boolean getThe_checkbox() {
             return the_checkbox;
         }
@@ -53,6 +57,12 @@ public class TestController {
         public void setAmount(BigDecimal amount) {
             this.amount = amount;
         }
+        public LocalDate getCash_date() {
+            return cash_date;
+        }
+        public void setCash_date(LocalDate cash_date) {
+            this.cash_date = cash_date;
+        }
 
         
     }
@@ -62,8 +72,8 @@ public class TestController {
         return "demo";
     }
 
-    @RequestMapping(value = "/form-submit", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public String submit( @RequestBody Map form, 
+    @RequestMapping(value = "/form-submit", method = RequestMethod.POST, consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
+    public String submit(  MyForm form, 
       BindingResult result, ModelMap model) throws JsonProcessingException {
         model.addAttribute("formJson", this.om.writeValueAsString(form));
         return "employeeView";

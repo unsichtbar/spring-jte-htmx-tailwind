@@ -31,7 +31,7 @@
 </header>
 
 <body>
-  <form hx-post="/form-submit" hx-ext="json-enc">
+  <form hx-post="/form-submit">
     <button class="btn btn-primary">Click me</button>
 
     <input name="the_checkbox" type="checkbox" class="toggle toggle-success" checked />
