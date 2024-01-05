@@ -6,6 +6,7 @@
 <script src="https://unpkg.com/htmx.org@1.9.10"></script>
 <script src="https://unpkg.com/htmx.org/dist/ext/json-enc.js"></script>
 <script src="https://cdn.tailwindcss.com"></script>
+
 <header class="navbar bg-base-100">
   <div class="flex-none">
     <button class="btn btn-square btn-ghost">
@@ -35,7 +36,7 @@
     <button class="btn btn-primary">Click me</button>
 
     <input name="the_checkbox" type="checkbox" class="toggle toggle-success" checked />
-    <input type="number" name="amount" placeholder="Amount" class="input input-bordered w-full max-w-xs" />
+    <input type="text" inputmode="decimal" name="amount" placeholder="Amount" class="input input-bordered w-full max-w-xs" />
     <input type="date" name="cash_date" />
   </form>
 
